@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>แจ้งของชำรุด</h2>
+<form method="POST">
+    <label for="issue_description">รายละเอียดของที่ชำรุด:</label>
+    <textarea id="issue_description" name="issue_description" required></textarea>
+    <button type="submit">ส่งแจ้งชำรุด</button>
+</form>
+{% endblock %}

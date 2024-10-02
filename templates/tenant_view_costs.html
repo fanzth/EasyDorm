@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>ค่าใช้จ่ายของคุณ</h2>
+<ul>
+    <li>ค่าเช่า: {{ costs.rent }} บาท</li>
+    <li>ค่าน้ำ: {{ costs.water }} บาท</li>
+    <li>ค่าไฟ: {{ costs.electricity }} บาท</li>
+    <li>รวม: {{ costs.total }} บาท</li>
+</ul>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>หน้าเจ้าของหอพัก</h2>
+<ul>
+    <li><a href="{{ url_for('owner_manage_rooms') }}">จัดการห้องพัก</a></li>
+    <li><a href="{{ url_for('owner_view_reports') }}">ดูการแจ้งชำรุด</a></li>
+</ul>
+{% endblock %}

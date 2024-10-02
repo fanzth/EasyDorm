@@ -1,0 +1,8 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>หน้าผู้เช่า</h2>
+<ul>
+    <li><a href="{{ url_for('tenant_view_costs') }}">ดูค่าใช้จ่าย</a></li>
+    <li><a href="{{ url_for('tenant_report_issue') }}">แจ้งของชำรุด</a></li>
+</ul>
+{% endblock %}

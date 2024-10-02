@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>รายละเอียดห้อง {{ room.room_no }}</h2>
+
+{% if room.status == 'Occupied' %}
+    <p><strong>สถานะ:</strong> ถูกเช่า</p>
+    <p><strong>ชื่อผู้เช่า:</strong> {{ room.tenant.name }}</p>
+    <p><strong>ระยะเวลาสัญญา:</strong> {{ room.tenant.contract_duration }}</p>
+    <p><strong>ข้อมูลติดต่อ:</strong> {{ room.tenant.contact_info }}</p>
+
+{% elif room.status == 'Under Maintenance' %}
+    <p><strong>สถานะ:</strong> กำลังปรับปรุง</p>
+    <form method="POST">
+        <button type="submit" name="set_available">เปลี่ยนสถานะเป็นพร้อมให้เช่า</button>
+    </form>
+
+{% else %}
+    <p><strong>สถานะ:</strong> ไม่มีผู้เช่า</p>
+    <form method="POST">
+        <h3>เพิ่มผู้เช่า</h3>
+        <label for="tenant_name">ชื่อผู้เช่า:</label>
+        <input type="text" name="tenant_name" required><br>
+
+        <label for="contract_duration">ระยะเวลาสัญญา:</label>
+        <input type="text" name="contract_duration" required><br>
+
+        <label for="contact_info">ข้อมูลติดต่อ:</label>
+        <input type="text" name="contact_info" required><br>
+
+        <button type="submit" name="add_tenant">เพิ่มผู้เช่า</button>
+    </form>
+{% endif %}
+
+<a href="{{ url_for('owner_manage_rooms') }}">กลับไปหน้าจัดการห้องพัก</a>
+{% endblock %}

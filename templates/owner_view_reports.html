@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>การแจ้งของชำรุด</h2>
+<table>
+    <tr>
+        <th>เลขห้อง</th>
+        <th>ปัญหา</th>
+        <th>สถานะ</th>
+    </tr>
+    {% for report in reports %}
+    <tr>
+        <td>{{ report.room_no }}</td>
+        <td>{{ report.issue }}</td>
+        <td>{{ report.status }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

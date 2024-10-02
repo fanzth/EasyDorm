@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>จัดการห้องพัก</h2>
+<div class="room-container">
+    {% for room in rooms %}
+    <div class="room-box {% if room.status == 'Occupied' %}occupied{% elif room.status == 'Under Maintenance' %}maintenance{% else %}available{% endif %}">
+        <a href="{{ url_for('owner_room_detail', room_no=room.room_no) }}">
+            <p>ห้อง {{ room.room_no }}</p>
+            <p>{{ room.status }}</p>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
